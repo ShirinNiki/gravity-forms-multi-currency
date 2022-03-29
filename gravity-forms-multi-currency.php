@@ -79,8 +79,13 @@ class GFMultiCurrency
     {
         if ($this->currency) {
             $currency = $this->currency;
+            return $currency;
         }
-
+        $forms = GFAPI::get_forms();
+        if(isset($forms[0]['currency']) && $forms[0]['currency']){
+            $currency = $forms[0]['currency'];
+            return $currency;
+        }
         return $currency;
     }
 
